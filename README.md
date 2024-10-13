@@ -23,6 +23,18 @@ AMD big computer with 6600 vid card
 
 I can for sure get the same backup from the Intel NUC's, but it may be possible to even have the same for my AMD machine as well.  But I'll probably just do separate backups for the 2 different kinds of computers, just to be on the safe side.
 
+###Other considerations
+
+Backup types
+
+Home directory files backup.  Be sure to include all dot files.
+
+Full root partition dd backup
+
+Full efi partition dd backup.  This probably isn't even necissary, but I'll do it since it's only 1gb of space.
+I don't fully understand this partition, so I want to give a little breathing room.  I usually just create 1GB of space in the front of the HD, and have half of that 1gb be empty space, and the last half be the efi partition.
+
+
 
 
 
