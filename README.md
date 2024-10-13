@@ -37,6 +37,8 @@ Full root partition dd backup
 Full efi partition dd backup.  This probably isn't even necissary, but I'll do it since it's only 1gb of space.
 I don't fully understand this partition, so I want to give a little breathing room.  I usually just create 1GB of space in the front of the HD, and have half of that 1gb be empty space, and the last half be the efi partition.
 
+Be sure and backup this doc to the blu-ray when complete.
+
 ### Other tools to backup
 ~~~
 System Rescue CD
