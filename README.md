@@ -1,6 +1,6 @@
 # linux-os-backups
 
-This is a reminder of how I plan on backing up and recovering an entire Linux system.
+This is a reminder of how I plan on backing up and recovering an entire Linux system.  The goal is to be able to resture a system 20yrs from now, so this needs to be something that doesn't rely on todays online apt repo's.  So I'll have to do a full backup of the root partition, which also contains the home directory, which I will install all flatpak's to.  I realize I don't actually need to install flatpaks to the home directory, but I feel like it may come in handy in some scenario that I'm just not able to think of right now.
 
 Backup locations:
 ```
