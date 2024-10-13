@@ -10,7 +10,8 @@ spinning giant HD
 
 Tools to use:
 ```
-sudo dd status=progress bs=64k if=/dev/sdSRC of=/dev/sdDEST
+dd
+sudo dd status=progress bs=64k if=/dev/sdSRC of=/wherever/iso.iso
 ```
 
 Computers:
