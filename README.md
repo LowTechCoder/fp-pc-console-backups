@@ -73,14 +73,23 @@ Be sure to also include any helpful documents on the blu-ray backup, like this d
 
 The goal is to have the same partition setup as described above, but they have to be exactly the same amout as before, or at least slightly bigger.  For dd, I like to use the Debian Live CD/DVD/USB installer, but it doesn't contain gparted on the disk, so if you do a system restore so far into the future, that the debian 12 apt repo's don't exist, you can use the System Rescue Live CD/DVD/USB.  I may need to learn more about mounting partitions in the System Rescue and update this document since it doesn't seem to do that automatically like the Debian 12 Live installer CD/DVD/USB.
 
+So use which ever Live CD/DVD/USB you want, and use gparted to create those partitions that are equal or slightly larger than the partitions listed above, in the Backup section of this doc.  Then use dd to restore each partition separately.  Here is an example. 
 ~~~
-System Rescue CD
-https://www.system-rescue.org/Download/
-#### example grub repair when using System Rescue
-grub-install /dev/sdb
-burn system rescue with backups?
+sudo dd status=progress bs=64k if=/wherever/iso.iso of=/dev/sdDEST
+~~~
 
-Debian 12 install DVD
-Debian 12 live CD/DVD
+Optionally unmout/eject your big spinning disk just to be safe.
+Use gparted, and it will tell you to fix some things on your newly restored drive, just agree/fix/yes to that.  Also use gparted to expand that /root to it's maximum size possible.
+
+Reboot
+
+If your newly restored system can't boot, you'll need to use System Rescue Live CD/DVD/USB to fix the efi /boot partition.  When System Restore first boots, you'll see the option to boot an OS on this drive.  Do that.  Now it is temperarilly booted, but you need to fix gparted.  Here is an example of that what may look like:
+
 ~~~
+grub-install /dev/sdROOOT
+~~~
+
+I'm pretty sure the above grub-install is needing the /root partiton, but I will check.
+
+Now everything should boot normally and you can shutdown the system, remove all Live CD/DVD/USB's.  
 
