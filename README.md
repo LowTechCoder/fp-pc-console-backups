@@ -1,5 +1,7 @@
 # linux-os-backups
 
+## General Details
+
 This is a guide on how I plan to backup up and recover a Linux system.  The goal is to be able to restore a system 20yrs from now, so this needs to be something that doesn't rely on todays online apt repo's.  So I'll have to do a full backup of the root partition, which also contains the home directory, which I will install all flatpak's to using --user.  This makes it easier to do home directory file backups.  
 
 For file backups, I will backup everything inside of the home directory, which contains user installed flatpaks and config files.
@@ -21,7 +23,6 @@ Backup locations:
 
 example commands:
 ```
-sudo dd status=progress bs=64k if=/dev/sdSRC of=/wherever/iso.iso
 flatpak install flathub org.DolphinEmu.dolphin-emu --user
 ```
 ### dd
@@ -35,10 +36,33 @@ Computers:
 
 I can for sure get the same backup from the Intel NUC's, but it may be possible to even have the same for my AMD machine as well.  But I'll probably just do separate backups for the 2 different kinds of computers, just to be on the safe side.
 
-### Other considerations
+## Backup Steps
+Partition your system like this:
+- about 500mb of free space
+- about 500mb of efi (depending on the debian 12 install disk you use, this could be fat32 efi or /boot/efi)
+- about 20gb of /root
 
+Install flatpak, vim and gparted with apt, and other needed software.
 
-### Other tools to backup
+Use --user to install all flatpaks to your home directory.
+
+Get the system working exactly how you like it
+
+Backup the contents of the home directory.  You may want to compress them, but I haven't done that yet.
+
+Shrink the /root partition with gparted.
+
+Backup the /root partition with dd.
+
+Name that dd /root backup something like retro_pc_system_2024.iso
+
+example dd command for that.
+~~~
+sudo dd status=progress bs=64k if=/dev/sdSRC of=/wherever/iso.iso
+~~~
+
+Backup your efi partition, even though this may not be nessisary.  I suppose this could restore the systems specific grub boot, but I'm not sure yet.  If this doesn't work out, it's not a huge deal.  The recover steps below will show how to do this with a proper efi partition backup or without.
+
 ~~~
 System Rescue CD
 https://www.system-rescue.org/Download/
@@ -50,7 +74,7 @@ Debian 12 install DVD
 Debian 12 live CD/DVD
 ~~~
 
-
+## Restore Steps
 
 
 
