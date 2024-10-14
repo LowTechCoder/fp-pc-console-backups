@@ -1,6 +1,19 @@
 # linux-os-backups
 
-This is a guide on how I plan to backup up and recover a Linux system.  The goal is to be able to restore a system 20yrs from now, so this needs to be something that doesn't rely on todays online apt repo's.  So I'll have to do a full backup of the root partition, which also contains the home directory, which I will install all flatpak's to using --user.  This makes it easier to do home directory file backups.
+This is a guide on how I plan to backup up and recover a Linux system.  The goal is to be able to restore a system 20yrs from now, so this needs to be something that doesn't rely on todays online apt repo's.  So I'll have to do a full backup of the root partition, which also contains the home directory, which I will install all flatpak's to using --user.  This makes it easier to do home directory file backups.  
+
+For file backups, I will backup everything inside of the home directory, which contains user installed flatpaks and config files.
+
+Full efi partition dd backup.  This probably isn't even necissary, but I'll do it since it's only 1gb of space.
+I don't fully understand this partition, so I want to give a little breathing room.  I usually just create 1GB of space in the front of the HD, and have half of that 1gb be empty space, and the last half be the efi partition.
+
+Backup these live tools:
+- System Rescue CD for future use
+- https://www.system-rescue.org/Download/
+- Debian 12 install DVD
+- Debian 12 live CD/DVD
+
+Be sure and backup this doc to the blu-ray when complete.
 
 Backup locations:
 - spinning giant HD for storing in a closet for 5yrs
@@ -24,16 +37,6 @@ I can for sure get the same backup from the Intel NUC's, but it may be possible 
 
 ### Other considerations
 
-Backup types
-
-Home directory files backup.  Be sure to include all dot files.
-
-Full root partition dd backup
-
-Full efi partition dd backup.  This probably isn't even necissary, but I'll do it since it's only 1gb of space.
-I don't fully understand this partition, so I want to give a little breathing room.  I usually just create 1GB of space in the front of the HD, and have half of that 1gb be empty space, and the last half be the efi partition.
-
-Be sure and backup this doc to the blu-ray when complete.
 
 ### Other tools to backup
 ~~~
