@@ -29,8 +29,8 @@ flatpak install flathub org.DolphinEmu.dolphin-emu --user
 I'm using status=progress instead of installing a different dd package that shows progress.  I'm using bs=64k, because I feel like I get less problems with that.  Before using dd to do a backup, I'll need to use gparted to shrink the root partition down to a size that will fit on a 25GB Blu-ray.  Keep in mind that gparted uses Gib instead of GB, so make the total be a little less than 23GB since 25gb is equal to 23.2831Gib.
 
 Computers:
-- NUC i5
-- NUC i7
+- NUC i5 NUC 2015
+- NUC i7 NUC 2015
 - AMD big computer with 6600 vid card
 
 I can for sure get the same backup from the Intel NUC's, but it may be possible to even have the same for my AMD machine as well.  But I'll probably just do separate backups for the 2 different kinds of computers, just to be on the safe side.
