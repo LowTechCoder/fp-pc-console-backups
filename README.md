@@ -48,20 +48,28 @@ Use --user to install all flatpaks to your home directory.
 
 Get the system working exactly how you like it
 
-Backup the contents of the home directory.  You may want to compress them, but I haven't done that yet.
+Backup the contents of the home directory.  You can use the Debian 12 Live CD/DVD to do this, or if your system boots up fine just run it to do this step.  You may want to compress them, but I haven't done that yet.
 
-Shrink the /root partition with gparted.
+Shrink the /root partition with gparted on the Debian 12 Live CD/DVD.
 
-Backup the /root partition with dd.
+Backup the /root partition with dd, to a giant spinning hard drive.
 
-Name that dd /root backup something like retro_pc_system_2024.iso
+Name that dd /root backup something like retro_pc_system_root_2024.iso
 
 example dd command for that.
 ~~~
 sudo dd status=progress bs=64k if=/dev/sdSRC of=/wherever/iso.iso
 ~~~
 
-Backup your efi partition, even though this may not be nessisary.  I suppose this could restore the systems specific grub boot, but I'm not sure yet.  If this doesn't work out, it's not a huge deal.  The recover steps below will show how to do this with a proper efi partition backup or without.
+Backup your efi partition the same way as you just did the /root, even though this may not be nessisary.  I suppose this could restore the systems specific grub boot, but I'm not sure yet.  If this doesn't work out, it's not a huge deal.  The recover steps below will show how to do this with a proper efi partition backup or without.
+
+Both of these /root and efi paritions should fit on a 25gb blu-ray.  Also put it on a giant spinning disk backup drive.  You can optionaly make another blu-ray backup and send it to someone elses house for storage.
+
+Be sure to also include any helpful documents on the blu-ray backup, like this document.
+
+
+
+## Restore Steps
 
 ~~~
 System Rescue CD
@@ -73,8 +81,4 @@ burn system rescue with backups?
 Debian 12 install DVD
 Debian 12 live CD/DVD
 ~~~
-
-## Restore Steps
-
-
 
