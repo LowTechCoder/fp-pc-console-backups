@@ -1,12 +1,10 @@
 # linux-os-backups
 
-This is a reminder of how I plan on backing up and recovering an entire Linux system.  The goal is to be able to resture a system 20yrs from now, so this needs to be something that doesn't rely on todays online apt repo's.  So I'll have to do a full backup of the root partition, which also contains the home directory, which I will install all flatpak's to using --user.  This makes it easier to do home directory file backups.
+This is a guide on how I plan to backup up and recover a Linux system.  The goal is to be able to restore a system 20yrs from now, so this needs to be something that doesn't rely on todays online apt repo's.  So I'll have to do a full backup of the root partition, which also contains the home directory, which I will install all flatpak's to using --user.  This makes it easier to do home directory file backups.
 
 Backup locations:
-```
-spinning giant HD
-25gb Blu-ray
-```
+-spinning giant HD for storing in a closet for 5yrs
+-25gb Blu-ray for storing in a closet forever, basically.
 
 example commands:
 ```
