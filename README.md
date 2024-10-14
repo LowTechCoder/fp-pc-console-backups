@@ -13,7 +13,7 @@ Backup these live tools:
 - System Rescue CD for future use
 - https://www.system-rescue.org/Download/
 - Debian 12 install DVD
-- Debian 12 live CD/DVD
+- Debian 12 live CD/DVD/USB
 
 Be sure and backup this doc to the blu-ray when complete.
 
@@ -48,9 +48,9 @@ Use --user to install all flatpaks to your home directory.
 
 Get the system working exactly how you like it
 
-Backup the contents of the home directory.  You can use the Debian 12 Live CD/DVD to do this, or if your system boots up fine just run it to do this step.  You may want to compress them, but I haven't done that yet.
+Backup the contents of the home directory.  You can use the Debian 12 Live CD/DVD/USB to do this, or if your system boots up fine just run it to do this step.  You may want to compress them, but I haven't done that yet.
 
-Shrink the /root partition with gparted on the Debian 12 Live CD/DVD.
+Shrink the /root partition with gparted on the Debian 12 Live CD/DVD/USB.
 
 Backup the /root partition with dd, to a giant spinning hard drive.
 
@@ -70,6 +70,8 @@ Be sure to also include any helpful documents on the blu-ray backup, like this d
 
 
 ## Restore Steps
+
+The goal is to have the same partition setup as described above, but they have to be exactly the same amout as before, or at least slightly bigger.  For dd, I like to use the Debian Live CD/DVD/USB installer, but it doesn't contain gparted on the disk, so if you do a system restore so far into the future, that the debian 12 apt repo's don't exist, you can use the System Rescue Live CD/DVD/USB.  I may need to learn more about mounting partitions in the System Rescue and update this document since it doesn't seem to do that automatically like the Debian 12 Live installer CD/DVD/USB.
 
 ~~~
 System Rescue CD
