@@ -86,10 +86,13 @@ Use gparted, and it will tell you to fix some things on your newly restored driv
 
 Reboot
 
-If your newly restored system can't boot, you'll need to use System Rescue Live CD/DVD/USB to fix the efi /boot partition.  When System Restore first boots, you'll see the option to boot an OS on this drive.  Do that.  Now it is temperarilly booted, but you need to fix grub.  Here is an example of that what may look like:
+If your newly restored system can't boot, you'll need to use System Rescue Live CD/DVD/USB to fix the efi /boot partition.  When System Restore first boots, you'll see the option to "Boot a Linux OS installed on the disk".  Do that.  Now it is temperarilly booted, but you need to fix grub.  Here is an example of that what may look like:
 
 ~~~
-grub-install /dev/sdROOOT
+#show disks or you can use gparted to see them
+sudo fdisk -l
+#install grub to the drive, NOT the partition in the drive.  So most likely sda.
+grub-install /dev/sdDRIVE
 ~~~
 
 I'm pretty sure the above grub-install is needing the /root partiton, but I will check.
