@@ -96,4 +96,11 @@ I'm pretty sure the above grub-install is needing the /root partiton, but I will
 
 Now everything should boot normally and you can shutdown the system, remove all Live CD/DVD/USB's.  
 
+System Rescue CD/DVD/USB tips
+
+When it boots, you can type 'startx' or just use the command line from there.
+
+In the terminal you can do 'mountall', but they won't show up in the side panel of the file browser.  You need to go to /mnt in file manager.  After you do this, and maybe when using GParted, the mounted devices can become stuck and you can unmount them even with 'umount /dev/sdWHATEVER1.  In that case, just reboot.
+
+
 ### Be sure to read the other guides named fp-pc-console-*
