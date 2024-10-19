@@ -1,4 +1,7 @@
-# linux-os-backups
+# Future Proof PC Console Backups
+
+### Be sure to read the other guides named fp-pc-console-*
+
 
 ## General Details
 
@@ -93,3 +96,4 @@ I'm pretty sure the above grub-install is needing the /root partiton, but I will
 
 Now everything should boot normally and you can shutdown the system, remove all Live CD/DVD/USB's.  
 
+### Be sure to read the other guides named fp-pc-console-*
