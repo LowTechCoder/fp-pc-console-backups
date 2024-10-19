@@ -57,7 +57,7 @@ Shrink the /root partition with gparted on the Debian 12 Live CD/DVD/USB.
 
 Backup the /root partition with dd, to a giant spinning hard drive.
 
-Name that dd /root backup something like retro_pc_system_root_2024.iso
+Name that dd /root backup something like fp-pc-console-root-2024.iso
 
 example dd command for that.
 ~~~
