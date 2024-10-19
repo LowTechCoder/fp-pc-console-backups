@@ -43,7 +43,7 @@ I can for sure get the same backup from the Intel NUC's, but it may be possible 
 Partition your system like this:
 - about 500mb of free space
 - about 500mb of efi (depending on the debian 12 install disk you use, this could be fat32 efi or /boot/efi)
-- about 20gb of /root
+- about 30gb of /root
 
 Install flatpak, vim and gparted with apt, and other needed software.
 
