@@ -74,7 +74,14 @@ Be sure to also include any helpful documents on the blu-ray backup, like this d
 
 ## Restore Steps
 
-The goal is to have the same partition setup as described above, but they have to be exactly the same amout as before, or at least slightly bigger.  For dd, I like to use the Debian Live CD/DVD/USB installer, but it doesn't contain gparted on the disk, so if you do a system restore so far into the future, that the debian 12 apt repo's don't exist, you can use the System Rescue Live CD/DVD/USB.  I may need to learn more about mounting partitions in the System Rescue and update this document since it doesn't seem to do that automatically like the Debian 12 Live installer CD/DVD/USB.
+The goal is to have the same partition setup as described above, but they have to be exactly the same amout as before, or at least slightly bigger.  For dd, I like to use the Debian Live CD/DVD/USB installer, but it doesn't contain gparted on the disk, so if you do a system restore so far into the future, that the debian 12 apt repo's don't exist, you can use the System Rescue Live CD/DVD/USB. 
+
+The Debian 12 Live CD/DVD/USB is much more user friendsly at some things, than System Rescue Live CD/DVD/USB.  Here is what I recommend using during each of these tasks:
+- Installation: Debian
+- dd: Debian
+- Gparted: System Rescue Live
+- Grub/efi repair: System Rescue Live
+
 
 So use which ever Live CD/DVD/USB you want, and use gparted to create those partitions that are equal or slightly larger than the partitions listed above, in the Backup section of this doc.  Then use dd to restore each partition separately.  Here is an example. 
 ~~~
@@ -98,11 +105,10 @@ grub-install /dev/sdDRIVE
 
 Now everything should boot normally and you can shutdown the system, remove all Live CD/DVD/USB's.  
 
-System Rescue CD/DVD/USB tips
+System Rescue CD/DVD/USB tips:
 
-When it boots, you can type 'startx' or just use the command line from there.
-
-In the terminal you can do 'mountall', but they won't show up in the side panel of the file browser.  You need to go to /mnt in file manager.  After you do this, and maybe when using GParted, the mounted devices can become stuck and you can't unmount them even with 'umount /dev/sdWHATEVER1.  In that case, just reboot.
+- When it boots, you can type 'startx' or just use the command line from there.
+- In the terminal you can do 'mountall', but they won't show up in the side panel of the file browser.  You need to go to /mnt in file manager.  After you do this, and maybe when using GParted, the mounted devices can become stuck and you can't unmount them even with 'umount /dev/sdWHATEVER1.  In that case, just reboot.
 
 
 ### Be sure to read the other guides named fp-pc-console-*
