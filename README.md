@@ -86,7 +86,7 @@ Use gparted, and it will tell you to fix some things on your newly restored driv
 
 Reboot
 
-If your newly restored system can't boot, you'll need to use System Rescue Live CD/DVD/USB to fix the efi /boot partition.  When System Restore first boots, you'll see the option to boot an OS on this drive.  Do that.  Now it is temperarilly booted, but you need to fix gparted.  Here is an example of that what may look like:
+If your newly restored system can't boot, you'll need to use System Rescue Live CD/DVD/USB to fix the efi /boot partition.  When System Restore first boots, you'll see the option to boot an OS on this drive.  Do that.  Now it is temperarilly booted, but you need to fix grub.  Here is an example of that what may look like:
 
 ~~~
 grub-install /dev/sdROOOT
