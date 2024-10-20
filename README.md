@@ -76,6 +76,11 @@ Be sure to also include any helpful documents on the blu-ray backup, like this d
 
 The goal is to have the same partition setup as described above, but they have to be exactly the same amout as before, or at least bigger.  For dd, I like to use the Debian Live CD/DVD/USB installer, but it doesn't contain gparted on the disk, so if you do a system restore so far into the future, that the debian 12 apt repo's don't exist, you can use the System Rescue Live CD/DVD/USB. 
 
+Currently using partitions with these minimum sizes:
+empty space in the beginning of around 349Mib or less
+efa partition: 651Mib 
+root partition: 18.8
+
 The Debian 12 Live CD/DVD/USB is much more user friendly at some things, than System Rescue Live CD/DVD/USB.  Here is what I recommend using during each of these tasks:
 - Installation: Debian
 - dd: Debian
