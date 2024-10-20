@@ -74,14 +74,15 @@ Be sure to also include any helpful documents on the blu-ray backup, like this d
 
 ## Restore Steps
 
-The goal is to have the same partition setup as described above, but they have to be exactly the same amout as before, or at least slightly bigger.  For dd, I like to use the Debian Live CD/DVD/USB installer, but it doesn't contain gparted on the disk, so if you do a system restore so far into the future, that the debian 12 apt repo's don't exist, you can use the System Rescue Live CD/DVD/USB. 
+The goal is to have the same partition setup as described above, but they have to be exactly the same amout as before, or at least bigger.  For dd, I like to use the Debian Live CD/DVD/USB installer, but it doesn't contain gparted on the disk, so if you do a system restore so far into the future, that the debian 12 apt repo's don't exist, you can use the System Rescue Live CD/DVD/USB. 
 
-The Debian 12 Live CD/DVD/USB is much more user friendsly at some things, than System Rescue Live CD/DVD/USB.  Here is what I recommend using during each of these tasks:
+The Debian 12 Live CD/DVD/USB is much more user friendly at some things, than System Rescue Live CD/DVD/USB.  Here is what I recommend using during each of these tasks:
 - Installation: Debian
 - dd: Debian
 - Gparted: System Rescue Live
 - Grub/efi repair: System Rescue Live
 
+But nothing wrong with using System Rescue Live for most of that.  You'll just need to use mount commands instead of relyiing on the xfce file explorer to do mounts, which is shown below.
 
 So use which ever Live CD/DVD/USB you want, and use gparted to create those partitions that are equal or slightly larger than the partitions listed above, in the Backup section of this doc.  Then use dd to restore each partition separately.  Here is an example. Be sure to create both the efi and root partitiion in that order or the labels will be in reverse and annoy you forever (sda1 and sda2 will be reversed).
 ~~~
