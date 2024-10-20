@@ -97,7 +97,13 @@ If your newly restored system can't boot, you'll need to use System Rescue Live 
 
 ~~~
 #show disks or you can use gparted to see them
-sudo fdisk -l
+fdisk -l
+#or
+fdisk -l | grep '/dev/'
+#or
+lsblk
+#you may need to mount a disk
+mount /dev/sdDISK /mnt
 #install grub to the drive, NOT the partition in the drive.  So most likely sda.
 grub-install /dev/sdDRIVE
 ~~~
