@@ -9,8 +9,7 @@ This is a guide on how I plan to backup up and recover a Linux system.  The goal
 
 For file backups, I will backup everything inside of the home directory, which contains user installed flatpaks and config files.
 
-Full efi partition dd backup.  This probably isn't even necissary, but I'll do it since it's only 1gb of space.
-I don't fully understand this partition, so I want to give a little breathing room.  I usually just create 1GB of space in the front of the HD, and have half of that 1gb be empty space, and the last half be the efi partition.
+Full efi partition dd backup.  I usually just create 1GB of space in the front of the HD, and have half of that 1gb be empty space, and the last half be the efi partition.
 
 Backup these live tools:
 - System Rescue CD for future use
@@ -24,10 +23,6 @@ Backup locations:
 - spinning giant HD for storing in a closet for 5yrs
 - 25gb Blu-ray for storing in a closet forever, basically.
 
-example commands:
-```
-flatpak install flathub org.DolphinEmu.dolphin-emu --user
-```
 ### dd
 
 I'm using status=progress instead of installing a different dd package that shows progress.  I'm using bs=64k, because I feel like I get less problems with that.  Before using dd to do a backup, I'll need to use gparted to shrink the root partition down to a size that will fit on a 25GB Blu-ray.  Keep in mind that gparted uses Gib instead of GB, so make the total be a little less than 23GB since 25gb is equal to 23.2831Gib.
@@ -37,13 +32,13 @@ Computers:
 - NUC i7 NUC 2015
 - AMD big computer with 6600 vid card
 
-I can for sure get the same backup from the Intel NUC's, but it may be possible to even have the same for my AMD machine as well.  But I'll probably just do separate backups for the 2 different kinds of computers, just to be on the safe side.
+It does seem like I can just use the same backup for all systems.  No need to do separate backups for Intel and AMD separately, as far as I can tell.
 
 ## Backup Steps
-Partition your system like this:
-- about 500mb of free space
-- about 500mb of efi (depending on the debian 12 install disk you use, this could be fat32 efi or /boot/efi)
-- about 30gb of /root
+Partition your system like this.  It should just be automatic, but make sure efa is sda1 and root is sda2 (the important part is the 1 and 2 is in order.)
+- empty space in the beginning of around 349Mib or less
+- efa partition: 651Mib (depending on the debian 12 install disk you use, this could be fat32 efi or /boot/efi)
+- root partition: 30GiB or more (you'll shrink this down later)
 
 Install flatpak, vim and gparted with apt, and other needed software.
 
@@ -51,9 +46,9 @@ Use --user to install all flatpaks to your home directory.
 
 Get the system working exactly how you like it
 
-Backup the contents of the home directory.  You can use the Debian 12 Live CD/DVD/USB to do this, or if your system boots up fine just run it to do this step.  You may want to compress them, but I haven't done that yet.
+Backup the contents of the home directory.  You can use the Debian 12 Live CD/DVD/USB to do this, or if your system boots up fine just run it to do this step.  You may want to compress them, but I haven't done that yet. If it asks you to skip things like symlinks, or what ever else it gets stuck on, that should be fine.
 
-Shrink the /root partition with gparted on the Debian 12 Live CD/DVD/USB.
+Shrink the /root partition with gparted on the Debian 12 Live CD/DVD/USB less than 25Gb (23Gib) so it can fit on a 25GB blu-ray.  Actually a little less would be better if possible so you can fit both partitions on the same blu-ray.
 
 Backup the /root partition with dd, to a giant spinning hard drive.
 
@@ -64,7 +59,7 @@ example dd command for that.
 sudo dd status=progress bs=64k if=/dev/sdSRC of=/wherever/iso.iso
 ~~~
 
-Backup your efi partition the same way as you just did the /root, even though this may not be nessisary.  I suppose this could restore the systems specific grub boot, but I'm not sure yet.  If this doesn't work out, it's not a huge deal.  The recover steps below will show how to do this with a proper efi partition backup or without.
+Backup your efi partition the same way as you just did the /root, but don't shrink it.  It's small enough.
 
 Both of these /root and efi paritions should fit on a 25gb blu-ray.  Also put it on a giant spinning disk backup drive.  You can optionaly make another blu-ray backup and send it to someone elses house for storage.
 
