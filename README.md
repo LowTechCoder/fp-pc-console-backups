@@ -83,7 +83,7 @@ The Debian 12 Live CD/DVD/USB is much more user friendsly at some things, than S
 - Grub/efi repair: System Rescue Live
 
 
-So use which ever Live CD/DVD/USB you want, and use gparted to create those partitions that are equal or slightly larger than the partitions listed above, in the Backup section of this doc.  Then use dd to restore each partition separately.  Here is an example. 
+So use which ever Live CD/DVD/USB you want, and use gparted to create those partitions that are equal or slightly larger than the partitions listed above, in the Backup section of this doc.  Then use dd to restore each partition separately.  Here is an example. Be sure to create both the efi and root partitiion in that order or the labels will be in reverse and annoy you forever.
 ~~~
 sudo dd status=progress bs=64k if=/wherever/iso.iso of=/dev/sdDEST
 ~~~
