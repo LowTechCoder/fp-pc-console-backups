@@ -118,4 +118,8 @@ grub-install /dev/sdDRIVE
 
 Now everything should boot normally and you can shutdown the system, remove all Live CD/DVD/USB's.  
 
+## Other considerations
+
+I was thinking, what if I were to encounter a new set of hardware, and for some reason my root partition just wasn't robust enough to handle it, and lets say I wanted to just install Debian fresh.  I would then just do that, and maybe even use a Debian newer than 12, and then once done, then could just use the home directory backups to restore all of those flatpaks that are in my home directory backups.  I would need access to the apt servers to install flatpak, but that should be around many years in the future.  So I may try all of this every year or 2 and try to stay somewhat up to date.
+
 ### Be sure to read the other guides named fp-pc-console-*
