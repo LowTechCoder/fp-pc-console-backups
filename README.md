@@ -69,28 +69,36 @@ Be sure to also include any helpful documents on the blu-ray backup, like this d
 
 ## Restore Steps
 
-The goal is to have the same partition setup as described above, but they have to be exactly the same amout as before, or at least bigger.  For dd, I like to use the Debian Live CD/DVD/USB installer, but it doesn't contain gparted on the disk, so if you do a system restore so far into the future, that the debian 12 apt repo's don't exist, you can use the System Rescue Live CD/DVD/USB. 
+The goal is to have the same partition setup as described above, but they have to be exactly the same amout as before, or at least bigger.  For dd, I like to use the Debian Live CD/DVD/USB installer since it auto mounts partitions for you, but you can do all this on the System Rescue Live disk if you know the mount commands, which I will go over below.
 
 Currently using partitions with these minimum sizes:
 empty space in the beginning of around 349Mib or less
 efa partition: 651Mib 
-root partition: 18.8
+root partition: 18.8 but feel free to use the entire space left
 
-The Debian 12 Live CD/DVD/USB is much more user friendly at some things, than System Rescue Live CD/DVD/USB.  Here is what I recommend using during each of these tasks:
+The Debian 12 Live CD/DVD/USB is much more user friendly at some things, than System Rescue Live CD/DVD/USB.  Here is what I recommend using during each of these tasks, but you can just use System Rescue for most of this instead.
 - Installation: Debian
 - dd: Debian
 - Gparted: System Rescue Live
 - Grub/efi repair: System Rescue Live
 
-But nothing wrong with using System Rescue Live for most of that.  You'll just need to use mount commands instead of relyiing on the xfce file explorer to do mounts, which is shown below.
-
 So use which ever Live CD/DVD/USB you want, and use gparted to create those partitions that are equal or slightly larger than the partitions listed above, in the Backup section of this doc.  Then use dd to restore each partition separately.  Here is an example. Be sure to create both the efi and root partitiion in that order or the labels will be in reverse and annoy you forever (sda1 and sda2 will be reversed).
 ~~~
-sudo dd status=progress bs=64k if=/wherever/iso.iso of=/dev/sdDEST
+#show disks or you can use gparted to see them
+fdisk -l
+#or
+fdisk -l | grep dev
+#or
+lsblk
+#you may need to mount a partition
+mount /dev/sdPart /mnt
+~~~
+~~~
+sudo dd status=progress bs=64k if=/wherever/iso.iso of=/dev/sdaPART
 ~~~
 
 Optionally unmout/eject your big spinning disk just to be safe.
-Use gparted, and it will tell you to fix some things on your newly restored drive, just agree/fix/yes to that.  Also use gparted to expand that /root to it's maximum size possible.
+Use gparted, and it will tell you to fix some things on your newly restored drive, just agree/fix/yes to that.  Also use gparted to expand that /root to it's maximum size possible.  Also if you see any exclamations beside a partition in gparted, right click that partition and choose to 'check'.  Then proceed by clicking the green check.  That should fix all issues it finds.
 
 Reboot
 
@@ -103,19 +111,11 @@ fdisk -l
 fdisk -l | grep '/dev/'
 #or
 lsblk
-#you may need to mount a disk
-mount /dev/sdDISK /mnt
 #install grub to the drive, NOT the partition in the drive.  So most likely sda.
 grub-install /dev/sdDRIVE
 ~~~
 
 
 Now everything should boot normally and you can shutdown the system, remove all Live CD/DVD/USB's.  
-
-System Rescue CD/DVD/USB tips:
-
-- When it boots, you can type 'startx' or just use the command line from there.
-- In the terminal you can do 'mountall', but they won't show up in the side panel of the file browser.  You need to go to /mnt in file manager.  After you do this, and maybe when using GParted, the mounted devices can become stuck and you can't unmount them even with 'umount /dev/sdWHATEVER1.  In that case, just reboot.
-
 
 ### Be sure to read the other guides named fp-pc-console-*
